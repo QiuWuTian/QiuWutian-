@@ -2,46 +2,1036 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b16">
-<title>AURORA Spatial｜自研沉浸式空间音频</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080A0C">
+<title>小天·杜比全景声(项目计划)</title>
+<meta name="description" content="自砚 —— 以三维声场重新定义聆听。杜比全景声认证，声音不再是声道，而是可被感知的空间对象。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Noto+Serif+SC:wght@200;300;400&display=swap" rel="stylesheet">
+<script>document.documentElement.className += ' js';</script>
 <style>
-:root{--bg:#080b16;--panel:#10172a;--line:rgba(160,190,255,.16);--text:#f3f6ff;--muted:#aab5d0;--blue:#69c7ff;--violet:#9a83ff;--mint:#79f0d0}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:.13em;font-size:15px}.brand b{color:var(--blue)}.navlinks{display:flex;gap:28px;color:var(--muted);font-size:13px}.navlinks a:hover{color:white}
-.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:36px;padding:72px 0 90px;position:relative}.eyebrow{color:var(--mint);font-size:12px;letter-spacing:.22em;text-transform:uppercase}.hero h1{font-size:clamp(42px,6vw,72px);line-height:1.08;letter-spacing:-.045em;margin:18px 0}.hero h1 span{background:linear-gradient(100deg,var(--blue),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{max-width:560px;color:var(--muted);font-size:17px}.actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}.btn{padding:13px 21px;border-radius:999px;font-size:14px;font-weight:700;border:1px solid var(--line);transition:.2s}.primary{background:linear-gradient(100deg,#5bc8f5,#8b7bff);color:#07101e;border:0}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
-.visual{height:440px;position:relative;display:grid;place-items:center;isolation:isolate}.orb{width:min(360px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b8f2ff 0,#6b9cff 10%,#6155ba 28%,#18284d 52%,#090d1b 70%);box-shadow:0 0 70px #6a8dff55, inset -25px -30px 60px #02040d;position:relative}.orb:before,.orb:after{content:"";position:absolute;inset:-35px;border:1px solid #8cbaff55;border-radius:50%;transform:rotateX(68deg) rotateZ(-18deg)}.orb:after{inset:-70px;transform:rotateX(68deg) rotateZ(28deg);border-color:#a58bff55}.soundwave{position:absolute;width:100%;height:100%;display:flex;align-items:center;justify-content:center;gap:7px;z-index:2}.soundwave i{display:block;width:5px;border-radius:9px;background:linear-gradient(var(--mint),var(--blue),var(--violet));box-shadow:0 0 18px #71d8ff88;animation:pulse 1.2s ease-in-out infinite alternate}.soundwave i:nth-child(3n){animation-delay:.3s}.soundwave i:nth-child(2n){animation-delay:.6s}@keyframes pulse{from{height:25px;opacity:.55}to{height:100px;opacity:1}}
-.float{position:absolute;padding:10px 14px;border:1px solid var(--line);background:#111a30cc;backdrop-filter:blur(12px);border-radius:12px;color:#dce8ff;font-size:12px}.f1{top:40px;right:0}.f2{bottom:54px;left:0}.f3{bottom:10px;right:25px}
-section{padding:84px 0;border-top:1px solid var(--line)}.section-head{max-width:650px;margin-bottom:34px}.section-head h2{font-size:clamp(30px,4vw,44px);margin:10px 0}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:25px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#131d34,#0c1120);min-height:190px}.icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#6fcfff18;color:var(--blue);font-size:20px;margin-bottom:18px}.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px}
-.demo{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding:30px;border-radius:22px;border:1px solid var(--line);background:radial-gradient(ellipse at 80% 20%,#344b8950,transparent 50%),#0e1527}.demo h3{font-size:27px;margin:8px 0}.demo p{color:var(--muted)}.control{padding:20px;border-radius:16px;background:#080d1b;border:1px solid var(--line)}.control label{display:flex;justify-content:space-between;font-size:13px;color:#d9e5ff}.control input{width:100%;accent-color:#76cfff;margin:20px 0}.meter{height:8px;border-radius:20px;background:#1c2945;overflow:hidden}.meter span{display:block;height:100%;width:68%;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:20px;transition:width .2s}
-.banner{padding:45px;border-radius:22px;text-align:center;background:linear-gradient(120deg,#182d50,#27204d);border:1px solid #8ebdff35}.banner h2{font-size:clamp(28px,4vw,42px);margin:0 0 10px}.banner p{color:#c3cce3;margin:0 auto 24px;max-width:620px}
-footer{padding:30px 0 42px;color:#7f8ba8;font-size:12px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media(max-width:760px){.navlinks{gap:12px;font-size:11px}.hero{grid-template-columns:1fr;padding-top:58px}.visual{height:330px}.grid{grid-template-columns:1fr}.demo{grid-template-columns:1fr}.f1{right:5px}.f2{left:5px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+:root{
+  --canvas:#080A0C;
+  --surface:#0D1013;
+  --text:#F0F2F5;
+  --muted:#8A9199;
+  --signal:#6EC8E8;
+  --warm:#D4A574;
+  --line:rgba(255,255,255,.08);
+  --accent:#6EC8E8;
+  --font-sans:'Inter','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',system-ui,-apple-system,sans-serif;
+  --font-serif:'Noto Serif SC','Songti SC','SimSun',serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--canvas);
+  color:var(--text);
+  font-family:var(--font-sans);
+  font-size:16px;
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img,canvas{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:rgba(110,200,232,.25);color:#fff}
+
+
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .reveal.is-visible{opacity:1;transform:none}
+
+
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;padding:0 clamp(20px,5vw,64px);
+  border-bottom:1px solid transparent;
+  transition:background .45s ease,border-color .45s ease,backdrop-filter .45s ease;
+}
+.nav.scrolled{
+  background:rgba(8,10,12,.72);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  backdrop-filter:blur(18px) saturate(140%);
+  border-bottom-color:var(--line);
+}
+.brand{display:flex;align-items:baseline;gap:12px;line-height:1}
+.brand-cn{font-family:var(--font-serif);font-weight:300;font-size:22px;letter-spacing:.14em}
+.brand-en{font-size:10px;letter-spacing:.26em;color:var(--muted);text-transform:uppercase}
+.nav-links{display:flex;gap:clamp(20px,3vw,42px)}
+.nav-links a{
+  position:relative;font-size:13px;letter-spacing:.16em;color:rgba(240,242,245,.62);
+  padding:6px 0;transition:color .3s ease;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--signal);transition:width .35s var(--ease);
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+
+.hero{
+  position:relative;min-height:100vh;min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  padding:120px clamp(20px,5vw,64px) 100px;overflow:hidden;
+}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:34%;
+  background:linear-gradient(to bottom,rgba(8,10,12,0),var(--canvas));
+  pointer-events:none;z-index:1;
+}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:920px}
+.eyebrow{
+  font-size:11px;letter-spacing:.34em;color:var(--signal);
+  text-transform:uppercase;margin-bottom:28px;
+}
+.hero h1{
+  font-family:var(--font-serif);font-weight:200;
+  font-size:clamp(2.1rem,5.6vw,4.4rem);
+  line-height:1.28;letter-spacing:-.01em;
+}
+.hero h1 span{display:block}
+.hero .lede{
+  margin:28px auto 0;max-width:46ch;
+  font-size:clamp(.92rem,1.5vw,1.05rem);
+  color:var(--muted);font-weight:300;line-height:1.9;
+}
+.hero-cta{margin-top:44px}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:14px 30px;border-radius:999px;
+  border:1px solid rgba(110,200,232,.32);
+  background:rgba(110,200,232,.04);
+  font-size:13px;letter-spacing:.14em;
+  transition:background .35s ease,border-color .35s ease,box-shadow .35s ease,transform .35s ease;
+}
+.btn:hover{
+  background:rgba(110,200,232,.12);
+  border-color:var(--signal);
+  box-shadow:0 0 34px rgba(110,200,232,.14);
+  transform:translateY(-1px);
+}
+.btn svg{width:14px;height:14px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateY(2px)}
+.scroll-hint{
+  position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:.24em;color:rgba(240,242,245,.28);
+}
+.scroll-hint i{
+  display:block;width:1px;height:38px;
+  background:linear-gradient(to bottom,rgba(110,200,232,.6),transparent);
+  animation:hintPulse 2.4s ease-in-out infinite;
+}
+@keyframes hintPulse{0%,100%{opacity:.35;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
+
+.section{position:relative;padding:clamp(80px,13vh,150px) clamp(20px,5vw,64px)}
+.inner{max-width:1240px;margin:0 auto}
+.section-head{max-width:640px;margin-bottom:clamp(48px,8vh,84px)}
+.kicker{
+  font-size:11px;letter-spacing:.3em;color:var(--signal);
+  text-transform:uppercase;margin-bottom:20px;
+}
+.section-head h2{
+  font-family:var(--font-serif);font-weight:200;
+  font-size:clamp(1.7rem,3.6vw,2.9rem);
+  line-height:1.35;letter-spacing:-.01em;
+}
+.section-head p{margin-top:20px;color:var(--muted);font-weight:300;max-width:48ch}
+
+
+.vis-section{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(32px,6vw,88px);align-items:center;
+  max-width:1240px;margin:0 auto;
+}
+.vis-copy h2{
+  font-family:var(--font-serif);font-weight:200;
+  font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.35;
+}
+.vis-copy p{margin-top:22px;color:var(--muted);font-weight:300;line-height:1.9}
+.vis-legend{display:flex;flex-wrap:wrap;gap:24px;margin-top:38px}
+.vis-legend li{list-style:none;display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;color:rgba(240,242,245,.6)}
+.dot{width:7px;height:7px;border-radius:50%}
+.dot.signal{background:var(--signal);box-shadow:0 0 12px rgba(110,200,232,.7)}
+.dot.warm{background:var(--warm);box-shadow:0 0 12px rgba(212,165,116,.6)}
+
+.vis-stage{
+  position:relative;width:100%;max-width:560px;aspect-ratio:1;
+  margin:0 auto;perspective:1100px;
+  cursor:grab;touch-action:none;
+  -webkit-user-select:none;user-select:none;
+}
+.vis-stage:active{cursor:grabbing}
+.scene{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+.ring{
+  position:absolute;inset:0;border-radius:50%;
+  border:1px solid rgba(110,200,232,.07);
+}
+.r1{transform:rotateX(74deg)}
+.r2{inset:9%;transform:rotateY(72deg) rotateX(14deg)}
+.r3{inset:19%;transform:rotateX(30deg) rotateY(-22deg)}
+.listener{
+  position:absolute;top:50%;left:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;
+  border-radius:50%;background:var(--warm);
+  box-shadow:0 0 18px 4px rgba(212,165,116,.32),0 0 44px 10px rgba(212,165,116,.1);
+}
+.listener::after{
+  content:'';position:absolute;inset:-7px;border-radius:50%;
+  border:1px solid rgba(212,165,116,.24);
+  animation:breathe 3.4s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.4);opacity:1}}
+.sound-node{
+  position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px 0 0 -3px;
+  border-radius:50%;background:var(--signal);will-change:transform;
+}
+.vis-caption{
+  text-align:center;margin-top:26px;
+  font-size:11px;letter-spacing:.22em;color:rgba(240,242,245,.26);
+}
+
+
+.sticky-story{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(32px,6vw,90px);
+  max-width:1240px;margin:0 auto;
+  padding:clamp(60px,10vh,120px) clamp(20px,5vw,64px);
+}
+.story-visual{
+  position:sticky;top:22vh;height:56vh;
+  display:flex;align-items:center;justify-content:center;
+}
+.visual-core{
+  position:relative;width:min(34vw,340px);aspect-ratio:1;border-radius:50%;
+  border:1px solid rgba(110,200,232,.16);
+  background:radial-gradient(circle at 38% 32%,rgba(110,200,232,.1),rgba(8,10,12,.96) 68%);
+  transition:transform 1s var(--ease),border-color 1s ease,box-shadow 1s ease;
+}
+.visual-core::before{
+  content:'';position:absolute;inset:-1px;border-radius:50%;
+  background:conic-gradient(from 0deg,rgba(110,200,232,.22),transparent 28%,transparent 72%,rgba(212,165,116,.18));
+  -webkit-mask:radial-gradient(circle,transparent 62%,#000 63%);
+  mask:radial-gradient(circle,transparent 62%,#000 63%);
+  animation:spin 22s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.visual-core[data-active="2"]{
+  transform:scale(1.08) translateY(-4%);
+  border-color:rgba(110,200,232,.48);
+  box-shadow:0 0 90px rgba(110,200,232,.09);
+}
+.visual-core[data-active="3"]{
+  transform:scale(1.02);
+  border-color:rgba(212,165,116,.42);
+  box-shadow:0 0 110px rgba(212,165,116,.07);
+}
+.story-step{
+  min-height:72vh;display:flex;flex-direction:column;justify-content:center;
+  opacity:1;transition:opacity .7s ease;
+}
+.js .story-step{opacity:.2}
+.js .story-step.is-visible{opacity:1}
+.step-index{font-size:11px;letter-spacing:.3em;color:var(--signal);margin-bottom:18px}
+.story-step h3{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:clamp(1.4rem,2.6vw,2.1rem);
+  line-height:1.4;letter-spacing:-.01em;margin-bottom:18px;
+}
+.story-step p{color:var(--muted);font-weight:300;line-height:1.95;max-width:38ch}
+
+
+.products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(20px,3.4vw,44px);
+}
+.product-card{
+  position:relative;padding-top:26px;border-top:1px solid var(--line);
+}
+.product-card::after{
+  content:'';position:absolute;top:-1px;left:0;height:1px;width:0;
+  background:var(--signal);transition:width .7s var(--ease);
+}
+.product-card:hover::after{width:100%}
+.product-visual{
+  aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
+  border-radius:3px;margin-bottom:26px;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 62%,rgba(110,200,232,.07),transparent 66%);
+}
+.speaker{
+  --w:78%;--h:56px;
+  position:relative;width:var(--w);height:var(--h);border-radius:5px;
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,#1b2126 0%,#0b0e11 46%,#171c21 100%);
+  box-shadow:0 28px 60px -24px rgba(0,0,0,.95),
+             inset 0 1px 0 rgba(255,255,255,.07),
+             inset 0 -1px 0 rgba(0,0,0,.8);
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  transition:transform .7s var(--ease);
+}
+.speaker::after{
+  content:'';position:absolute;left:6%;right:6%;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,165,116,.35),transparent);
+}
+.speaker i{
+  display:block;width:5px;height:5px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#3b444c,#0d1013);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.09);
+}
+.speaker.tall{--w:22%;--h:170px;flex-direction:column}
+.speaker.box{--w:52%;--h:120px}
+.product-card:hover .speaker{transform:translateY(-7px) scale(1.02)}
+.product-card h3{
+  font-family:var(--font-serif);font-weight:300;font-size:1.16rem;
+  letter-spacing:.06em;margin-bottom:8px;
+}
+.product-card p{font-size:13px;color:var(--muted);letter-spacing:.06em;font-weight:300}
+.product-price{margin-top:14px;font-size:12px;letter-spacing:.16em;color:rgba(212,165,116,.85)}
+
+
+.scenes{--accent:#6EC8E8}
+.scene-tabs{display:flex;gap:clamp(18px,3vw,40px);margin-bottom:clamp(36px,6vh,60px);flex-wrap:wrap}
+.tab{
+  position:relative;padding:8px 0;
+  font-size:13px;letter-spacing:.2em;color:rgba(240,242,245,.42);
+  transition:color .4s ease;
+}
+.tab::after{
+  content:'';position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--accent);transition:width .5s var(--ease);
+}
+.tab.active{color:var(--text)}
+.tab.active::after{width:100%}
+.tab:hover{color:rgba(240,242,245,.8)}
+.scene-body{
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:clamp(32px,6vw,80px);align-items:center;
+}
+.scene-stage{
+  position:relative;aspect-ratio:16/10;border-radius:4px;overflow:hidden;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 55%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 62%),
+    linear-gradient(160deg,#0E1216,#080A0C 70%);
+  transition:background .9s ease;
+}
+.scene-stage::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 55%,transparent 30%,rgba(8,10,12,.85) 100%);
+}
+.scene-orb{
+  position:absolute;top:50%;left:50%;width:34%;aspect-ratio:1;
+  transform:translate(-50%,-50%);border-radius:50%;
+  border:1px solid color-mix(in srgb,var(--accent) 38%,transparent);
+  box-shadow:0 0 70px -10px color-mix(in srgb,var(--accent) 40%,transparent);
+  transition:border-color .9s ease,box-shadow .9s ease;
+  z-index:1;
+}
+.scene-orb::before{
+  content:'';position:absolute;inset:18%;border-radius:50%;
+  border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);
+}
+.scene-text h3{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.4;margin-bottom:20px;
+  transition:opacity .35s ease;
+}
+.scene-text p{
+  color:var(--muted);font-weight:300;line-height:1.95;max-width:40ch;
+  transition:opacity .35s ease;
+}
+.scene-meta{
+  margin-top:30px;display:flex;gap:28px;flex-wrap:wrap;
+  font-size:11px;letter-spacing:.18em;color:rgba(240,242,245,.4);
+}
+.scene-meta b{color:var(--accent);font-weight:400;transition:color .9s ease}
+
+/* ============ 页脚 ============ */
+.footer{
+  border-top:1px solid var(--line);
+  padding:clamp(60px,10vh,110px) clamp(20px,5vw,64px) 44px;
+}
+.footer-inner{max-width:1240px;margin:0 auto}
+.footer-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:48px;flex-wrap:wrap;margin-bottom:clamp(48px,9vh,90px);
+}
+.footer-mark{
+  font-family:var(--font-serif);font-weight:200;
+  font-size:clamp(3.6rem,13vw,9rem);line-height:.95;
+  letter-spacing:.06em;color:rgba(240,242,245,.09);
+  -webkit-user-select:none;user-select:none;
+}
+.footer-cols{display:flex;gap:clamp(34px,6vw,80px);flex-wrap:wrap}
+.footer-col h4{
+  font-size:10px;letter-spacing:.26em;color:rgba(240,242,245,.32);
+  text-transform:uppercase;margin-bottom:18px;font-weight:400;
+}
+.footer-col a{
+  display:block;font-size:13px;color:rgba(240,242,245,.62);
+  padding:6px 0;transition:color .3s ease;
+}
+.footer-col a:hover{color:var(--signal)}
+.footer-bottom{
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding-top:28px;border-top:1px solid var(--line);
+  font-size:11px;letter-spacing:.1em;color:rgba(240,242,245,.28);
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:980px){
+  .vis-section{grid-template-columns:1fr}
+  .vis-copy{order:2}
+  .vis-stage{order:1;max-width:420px}
+  .story-visual{position:relative;top:0;height:34vh;order:-1}
+  .visual-core{width:min(52vw,240px)}
+  .products-grid{grid-template-columns:1fr;gap:44px}
+  .product-card{max-width:420px}
+  .scene-body{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .sticky-story{grid-template-columns:1fr;gap:20px}
+  .story-step{min-height:0;padding:56px 0}
+}
+@media (max-width:720px){
+  .nav-links{display:none}
+  .hero{padding-top:100px}
+  .story-step p{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+}
 </style>
 </head>
 <body>
-<header class="wrap">
-<nav><a class="brand" href="#">AURORA <b>/</b> SPATIAL</a><div class="navlinks"><a href="#tech">核心技术</a><a href="#experience">聆听体验</a><a href="#about">关于项目</a></div></nav>
+
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="自砚 首页">
+    <span class="brand-cn">自砚</span>
+    <span class="brand-en">Ziyan · Atmos</span>
+  </a>
+  <nav class="nav-links" aria-label="主导航">
+    <a href="#experience">声场</a>
+    <a href="#tech">技术</a>
+    <a href="#products">产品</a>
+    <a href="#scenes">场景</a>
+  </nav>
 </header>
+
 <main>
-<div class="wrap hero">
-<div><div class="eyebrow">Next-generation spatial audio</div><h1>让声音<br><span>拥有空间。</span></h1><p class="lead">AURORA Spatial 自研沉浸式空间音频方案。以声场建模与多维音频处理为核心，让声音不止于左右，更有方向、距离与包围感。</p><div class="actions"><a class="btn primary" href="#experience">探索聆听体验 ↗</a><a class="btn" href="#tech">了解核心技术</a></div></div>
-<div class="visual"><div class="orb"></div><div class="soundwave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="float f1">360° · 空间声场</div><div class="float f2">DIRECTION · 方向感知</div><div class="float f3">DEPTH · 声音纵深</div></div>
-</div>
-<section id="tech"><div class="wrap"><div class="section-head"><div class="eyebrow">Built from our own ideas</div><h2>为沉浸感而设计</h2><p>从声音定位到空间渲染，围绕真实聆听场景构建音频体验。</p></div><div class="grid">
-<article class="card"><div class="icon">◎</div><h3>空间定位</h3><p>通过声像与空间参数处理，塑造更清晰的声音方位与层次。</p></article>
-<article class="card"><div class="icon">〰</div><h3>动态声场</h3><p>根据音频内容调整空间表现，让细节、氛围与主体更协调。</p></article>
-<article class="card"><div class="icon">◈</div><h3>沉浸式渲染</h3><p>面向耳机与立体声播放场景，探索更具包围感的听觉体验。</p></article>
-</div></div></section>
-<section id="experience"><div class="wrap"><div class="demo"><div><div class="eyebrow">Interactive concept</div><h3>调节你的空间感</h3><p>这是一个前端交互概念演示。拖动滑块，查看空间强度示意变化；实际音效需要接入音频处理引擎后才能体验。</p></div><div class="control"><label for="space">空间感强度 <strong id="value">68%</strong></label><input id="space" type="range" min="0" max="100" value="68"><div class="meter"><span id="meter"></span></div><p id="status" style="font-size:12px;margin:14px 0 0">当前模式：沉浸声场</p></div></div></div></section>
-<section id="about"><div class="wrap"><div class="banner"><div class="eyebrow">A new way to listen</div><h2>不只是听见，更是身临其境。</h2><p>以自主研发为起点，持续探索空间音频的更多可能。</p><a class="btn primary" href="qiuwutian2@gmail.com">联系项目团队:qiuwutian2@gmail.com</a></div></div></section>
+
+
+  <section class="hero" id="top">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <p class="eyebrow">Ziyan × Dolby Atmos</p>
+      <h1><span>声音不再被摆放</span><span>而是被围绕</span></h1>
+      <p class="lede">自砚全景声系统将每一个声音视为独立对象，在三维空间中精确放置。你听到的不再是声道，而是一个可以被感知的场。</p>
+      <div class="hero-cta">
+        <a class="btn" href="#experience">
+          体验声场可视化
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 3v10M3.5 8.5 8 13l4.5-4.5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <i></i>
+      SCROLL
+    </div>
+  </section>
+
+
+  <section class="section" id="experience">
+    <div class="vis-section">
+      <div class="vis-copy reveal">
+        <p class="kicker">Sound Field</p>
+        <h2>声音，在头顶之上<br>也在身后之下</h2>
+        <p>拖拽下方的声场模型，你会看到每一个声音对象如何在听者周围的三维空间中定位与运动。高度维度被真正纳入叙事——雨落在屋顶、飞船掠过上方，不再被压缩进一个平面。</p>
+        <ul class="vis-legend">
+          <li><span class="dot warm"></span>听者位置</li>
+          <li><span class="dot signal"></span>声音对象</li>
+          <li>最多 36 只扬声器</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="vis-stage" id="visStage" role="img" aria-label="可拖拽旋转的三维声场可视化模型">
+          <div class="scene" id="visScene">
+            <div class="ring r1"></div>
+            <div class="ring r2"></div>
+            <div class="ring r3"></div>
+            <div class="listener"></div>
+          </div>
+        </div>
+        <p class="vis-caption">拖拽旋转 · 声场实时演算</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="tech">
+    <div class="sticky-story">
+      <div class="story-visual">
+        <div class="visual-core" id="core" data-active="1"></div>
+      </div>
+      <div class="story-copy">
+        <article class="story-step" data-step="1">
+          <span class="step-index">01</span>
+          <h3>声音是对象，不是声道</h3>
+          <p>传统环绕声将声音分配给固定扬声器；全景声将每个声音视为独立对象，在三维空间中精确放置，再由系统实时计算渲染。</p>
+        </article>
+        <article class="story-step" data-step="2">
+          <span class="step-index">02</span>
+          <h3>头顶之上，也有声场</h3>
+          <p>高度维度被纳入叙事。从上方的飞行器到天花板的雨声，每一个垂直方向的声音都被真实还原，而非从侧面模拟。</p>
+        </article>
+        <article class="story-step" data-step="3">
+          <span class="step-index">03</span>
+          <h3>每一只扬声器，都被精确驱动</h3>
+          <p>多达 36 只扬声器与 1965 瓦功率输出，将对象运动还原为可被身体感知的物理声场。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="products">
+    <div class="inner">
+      <div class="section-head reveal">
+        <p class="kicker">Products</p>
+        <h2>自砚 · 全景声系列</h2>
+        <p>从一体式到分体式，每一款都以同一套三维声场引擎驱动。</p>
+      </div>
+
+      <div class="products-grid">
+        <article class="product-card reveal">
+          <div class="product-visual">
+            <div class="speaker" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <h3>自砚 One</h3>
+          <p>11.1.4 声道 · 一体式回音壁</p>
+          <p class="product-price">￥ 6,980 起</p>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-visual">
+            <div class="speaker tall" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <h3>自砚 Column</h3>
+          <p>7.1.4 声道 · 落地式主箱</p>
+          <p class="product-price">￥ 12,800 起</p>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-visual">
+            <div class="speaker box" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+          <h3>自砚 Sub</h3>
+          <p>双 10 寸低音 · 无线低频单元</p>
+          <p class="product-price">￥ 4,280 起</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section scenes" id="scenes">
+    <div class="inner">
+      <div class="section-head reveal">
+        <p class="kicker">Scenes</p>
+        <h2>同一套声场，三种叙事</h2>
+      </div>
+
+      <div class="scene-tabs reveal" role="tablist" aria-label="使用场景">
+        <button class="tab active" role="tab" aria-selected="true" data-scene="music">音乐</button>
+        <button class="tab" role="tab" aria-selected="false" data-scene="movie">电影</button>
+        <button class="tab" role="tab" aria-selected="false" data-scene="game">游戏</button>
+      </div>
+
+      <div class="scene-body reveal">
+        <div class="scene-stage" aria-hidden="true">
+          <div class="scene-orb"></div>
+        </div>
+        <div class="scene-text">
+          <h3 id="sceneTitle">让混音师的位置，成为你的位置</h3>
+          <p id="sceneDesc">全景声混音保留了原始录音中的空间信息。你听见的不只是乐器，还有它们所在的房间、空气与距离。</p>
+          <div class="scene-meta">
+            <span>声道 <b id="sceneCh">11.1.4</b></span>
+            <span>高度层 <b id="sceneH">4</b></span>
+            <span>对象数 <b id="sceneObj">64</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
-<footer class="wrap"><span>© 2026 AURORA Spatial · Concept project</span><span>本项目为独立概念展示，与 Dolby Laboratories 及 Dolby Atmos 不存在官方关联或授权关系。</span></footer>
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-mark">自砚</div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>产品</h4>
+          <a href="#products">自砚 One</a>
+          <a href="#products">自砚 Column</a>
+          <a href="#products">自砚 Sub</a>
+        </div>
+        <div class="footer-col">
+          <h4>了解</h4>
+          <a href="#tech">全景声技术</a>
+          <a href="#experience">声场可视化</a>
+          <a href="#scenes">使用场景</a>
+        </div>
+        <div class="footer-col">
+          <h4>联系</h4>
+          <a href="#">技术支持</a>
+          <a href="#">经销商查询</a>
+          <a href="#">媒体合作</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ziyan Audio. 保留所有权利。</span>
+      <span>Dolby Atmos 为 Dolby Laboratories 授权商标</span>
+    </div>
+  </div>
+</footer>
+
 <script>
-const slider=document.getElementById('space'),value=document.getElementById('value'),meter=document.getElementById('meter'),status=document.getElementById('status');
-slider.addEventListener('input',()=>{const n=Number(slider.value);value.textContent=n+'%';meter.style.width=n+'%';status.textContent=n<30?'当前模式：轻量空间':n<70?'当前模式：沉浸声场':'当前模式：宽阔声场';});
+(function () {
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+  var nav = document.getElementById('nav');
+  function onScrollNav() {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScrollNav, { passive: true });
+  onScrollNav();
+
+  /* ---------- 滚动显现 ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('is-visible');
+          revealObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- 技术叙事 ---------- */
+  var steps = document.querySelectorAll('.story-step');
+  var core = document.getElementById('core');
+  if (steps.length && 'IntersectionObserver' in window) {
+    var stepObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          steps.forEach(function (s) { s.classList.remove('is-visible'); });
+          en.target.classList.add('is-visible');
+          if (core) core.setAttribute('data-active', en.target.dataset.step);
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    steps.forEach(function (s) { stepObs.observe(s); });
+  } else {
+    steps.forEach(function (s) { s.classList.add('is-visible'); });
+  }
+
+  /* ---------- Hero 三维线框球 ---------- */
+  (function heroCanvas() {
+    var canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W = 0, H = 0, DPR = 1;
+    var ry = 0, rx = -0.34;
+    var tiltX = 0, tiltY = 0, targetX = 0, targetY = 0;
+    var visible = true;
+    var lines = [];
+    var particles = [];
+    var strokeColors = [];
+
+    for (var i = 0; i < 10; i++) {
+      strokeColors.push('rgba(110,200,232,' + (0.018 + (i / 10) * 0.085).toFixed(4) + ')');
+    }
+
+    function buildGeometry() {
+      lines = [];
+      var small = W < 720;
+      var latStep = small ? 26 : 20;
+      var lonStep = small ? 45 : 30;
+      var latSeg = small ? 40 : 56;
+      var lonSeg = small ? 20 : 28;
+
+      for (var lat = -60; lat <= 60; lat += latStep) {
+        var phi = lat * Math.PI / 180;
+        var ring = [];
+        for (var a = 0; a <= latSeg; a++) {
+          var th = a / latSeg * Math.PI * 2;
+          ring.push({
+            x: Math.cos(phi) * Math.cos(th),
+            y: Math.sin(phi),
+            z: Math.cos(phi) * Math.sin(th)
+          });
+        }
+        lines.push(ring);
+      }
+      for (var lon = 0; lon < 360; lon += lonStep) {
+        var t0 = lon * Math.PI / 180;
+        var mer = [];
+        for (var b = 0; b <= lonSeg; b++) {
+          var p2 = (b / lonSeg) * Math.PI - Math.PI / 2;
+          mer.push({
+            x: Math.cos(p2) * Math.cos(t0),
+            y: Math.sin(p2),
+            z: Math.cos(p2) * Math.sin(t0)
+          });
+        }
+        lines.push(mer);
+      }
+
+      particles = [];
+      var count = small ? 46 : 80;
+      for (var k = 0; k < count; k++) {
+        var u = Math.random() * Math.PI * 2;
+        var v = Math.acos(2 * Math.random() - 1);
+        particles.push({
+          x: Math.sin(v) * Math.cos(u),
+          y: Math.cos(v),
+          z: Math.sin(v) * Math.sin(u),
+          speed: 0.06 + Math.random() * 0.16,
+          phase: Math.random() * Math.PI * 2,
+          base: u
+        });
+      }
+    }
+
+    function resize() {
+      DPR = Math.min(window.devicePixelRatio || 1, 2);
+      W = canvas.clientWidth;
+      H = canvas.clientHeight;
+      if (!W || !H) return;
+      canvas.width = Math.round(W * DPR);
+      canvas.height = Math.round(H * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      buildGeometry();
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 160);
+    });
+
+    window.addEventListener('pointermove', function (e) {
+      targetX = (e.clientX / window.innerWidth - 0.5) * 0.5;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 0.3;
+    }, { passive: true });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        visible = en[0].isIntersecting;
+      }, { threshold: 0 }).observe(canvas);
+    }
+
+    var last = 0;
+    function draw(now) {
+      requestAnimationFrame(draw);
+      if (!visible) { last = now; return; }
+      var dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+
+      if (!reduceMotion) ry += dt * 0.13;
+      tiltX += (targetX - tiltX) * 0.045;
+      tiltY += (targetY - tiltY) * 0.045;
+
+      var angleY = ry + tiltX;
+      var angleX = rx + tiltY;
+      var cy0 = Math.cos(angleY), sy0 = Math.sin(angleY);
+      var cx0 = Math.cos(angleX), sx0 = Math.sin(angleX);
+
+      var cx = W / 2;
+      var cy = H * 0.52;
+      var R = Math.min(W, H) * 0.36;
+      var FOV = R * 3.2;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // 线框
+      for (var li = 0; li < lines.length; li++) {
+        var line = lines[li];
+        for (var pi = 0; pi < line.length - 1; pi++) {
+          var p1 = line[pi], p2 = line[pi + 1];
+          var x1 = p1.x * cy0 - p1.z * sy0;
+          var z1 = p1.x * sy0 + p1.z * cy0;
+          var y1 = p1.y * cx0 - z1 * sx0;
+          z1 = p1.y * sx0 + z1 * cx0;
+
+          var x2 = p2.x * cy0 - p2.z * sy0;
+          var z2 = p2.x * sy0 + p2.z * cy0;
+          var y2 = p2.y * cx0 - z2 * sx0;
+          z2 = p2.y * sx0 + z2 * cx0;
+
+          var midZ = (z1 + z2) * 0.5;
+          var depth = (midZ + 1) * 0.5;
+          var idx = Math.floor(depth * 10);
+          if (idx < 0) idx = 0; if (idx > 9) idx = 9;
+
+          var s1 = FOV / (FOV + z1 * R);
+          var s2 = FOV / (FOV + z2 * R);
+
+          ctx.beginPath();
+          ctx.strokeStyle = strokeColors[idx];
+          ctx.lineWidth = 1;
+          ctx.moveTo(cx + x1 * R * s1, cy + y1 * R * s1);
+          ctx.lineTo(cx + x2 * R * s2, cy + y2 * R * s2);
+          ctx.stroke();
+        }
+      }
+
+      // 粒子
+      for (var qi = 0; qi < particles.length; qi++) {
+        var q = particles[qi];
+        var ang = q.base + (reduceMotion ? 0 : now * 0.00008 * q.speed * 12);
+        var qx = q.x * Math.cos(ang) - q.z * Math.sin(ang);
+        var qz = q.x * Math.sin(ang) + q.z * Math.cos(ang);
+        var qy = q.y;
+
+        var rxx = qx * cy0 - qz * sy0;
+        var rzz = qx * sy0 + qz * cy0;
+        var ryy = qy * cx0 - rzz * sx0;
+        rzz = qy * sx0 + rzz * cx0;
+
+        var sc = FOV / (FOV + rzz * R);
+        var px = cx + rxx * R * sc;
+        var py = cy + ryy * R * sc;
+        var dp = (rzz + 1) * 0.5;
+        var twinkle = 0.55 + 0.45 * Math.sin(now * 0.0012 + q.phase);
+
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(110,200,232,' + (0.05 + dp * 0.16 * twinkle).toFixed(3) + ')';
+        ctx.arc(px, py, (1.2 + dp * 2.4) * sc, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(212,165,116,' + (0.08 + dp * 0.28 * twinkle).toFixed(3) + ')';
+        ctx.arc(px, py, (0.7 + dp * 0.9) * sc, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    resize();
+    requestAnimationFrame(draw);
+  })();
+
+
+  (function soundField() {
+    var stage = document.getElementById('visStage');
+    var sceneEl = document.getElementById('visScene');
+    if (!stage || !sceneEl) return;
+
+    var isSmall = window.innerWidth < 640;
+    var NODE_COUNT = isSmall ? 6 : 9;
+    var nodes = [];
+    var autoplay = !reduceMotion;
+
+    for (var i = 0; i < NODE_COUNT; i++) {
+      var el = document.createElement('div');
+      el.className = 'sound-node';
+      sceneEl.appendChild(el);
+      nodes.push({
+        el: el,
+        radius: 0.18 + Math.random() * 0.30,
+        speed: (0.14 + Math.random() * 0.34) * (Math.random() < 0.5 ? -1 : 1),
+        angle: Math.random() * Math.PI * 2,
+        tilt: (Math.random() - 0.5) * 0.9,
+        baseOpacity: 0.42 + Math.random() * 0.5
+      });
+    }
+
+    var rotX = -16, rotY = 18;
+    var targetRotX = rotX, targetRotY = rotY;
+    var dragging = false, lastX = 0, lastY = 0;
+    var userPaused = false, resumeTimer = null;
+
+    stage.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      userPaused = true;
+      if (resumeTimer) clearTimeout(resumeTimer);
+      lastX = e.clientX;
+      lastY = e.clientY;
+      if (stage.setPointerCapture) {
+        try { stage.setPointerCapture(e.pointerId); } catch (err) {}
+      }
+    });
+
+    stage.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var dx = e.clientX - lastX;
+      var dy = e.clientY - lastY;
+      targetRotY += dx * 0.42;
+      targetRotX -= dy * 0.30;
+      if (targetRotX < -62) targetRotX = -62;
+      if (targetRotX > 62) targetRotX = 62;
+      lastX = e.clientX;
+      lastY = e.clientY;
+    });
+
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function () {
+        userPaused = false;
+      }, 2200);
+    }
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointercancel', endDrag);
+    stage.addEventListener('pointerleave', endDrag);
+
+    var prev = performance.now();
+
+    function tick(now) {
+      requestAnimationFrame(tick);
+      var dt = Math.min((now - prev) / 1000, 0.05);
+      prev = now;
+
+      if (autoplay && !userPaused) targetRotY += dt * 4.5;
+
+      rotX += (targetRotX - rotX) * 0.07;
+      rotY += (targetRotY - rotY) * 0.07;
+      sceneEl.style.transform = 'rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg)';
+
+      var w = stage.clientWidth || 1;
+
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        n.angle += n.speed * dt;
+
+        var r = n.radius * w;
+        var a = n.angle;
+        var cosT = Math.cos(n.tilt);
+
+        var x = Math.cos(a) * r;
+        var y = Math.sin(a) * r * cosT;
+        var z = Math.sin(a) * r * Math.sin(n.tilt);
+
+        var depth = (z / (w * 0.45) + 1) * 0.5;
+        if (depth < 0) depth = 0;
+        if (depth > 1) depth = 1;
+
+        var scale = 0.55 + depth * 0.9;
+        var glow = 0.3 + depth * 0.7;
+
+        n.el.style.transform =
+          'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,' + z.toFixed(1) + 'px) scale(' + scale.toFixed(3) + ')';
+        n.el.style.opacity = (n.baseOpacity * (0.55 + depth * 0.6)).toFixed(3);
+        n.el.style.boxShadow =
+          '0 0 ' + (10 + glow * 14).toFixed(1) + 'px ' + (2 + glow * 3).toFixed(1) + 'px rgba(110,200,232,' + (0.25 + glow * 0.35).toFixed(3) + '),' +
+          '0 0 ' + (24 + glow * 20).toFixed(1) + 'px ' + (4 + glow * 6).toFixed(1) + 'px rgba(110,200,232,' + (0.05 + glow * 0.12).toFixed(3) + ')';
+      }
+    }
+
+    requestAnimationFrame(tick);
+  })();
+
+
+  (function sceneSwitch() {
+    var tabs = document.querySelectorAll('.tab');
+    var root = document.getElementById('scenes');
+    if (!tabs.length || !root) return;
+
+    var data = {
+      music: {
+        accent: '#6EC8E8',
+        title: '让混音师的位置，成为你的位置',
+        desc: '全景声混音保留了原始录音中的空间信息。你听见的不只是乐器，还有它们所在的房间、空气与距离。',
+        ch: '11.1.4', h: '4', obj: '64'
+      },
+      movie: {
+        accent: '#D4A574',
+        title: '从画面之内，到画面之外',
+        desc: '对白、配乐与音效被分别作为对象放置。当画面之外的脚步声从身后传来，你不再需要相信它——你直接听见它。',
+        ch: '9.1.6', h: '6', obj: '118'
+      },
+      game: {
+        accent: '#7FD6A8',
+        title: '每一次转身，声场都随之重建',
+        desc: '基于对象的实时渲染让声场随视角变化而动态更新。定位不再依赖预设声道，而是每一帧的精确计算。',
+        ch: '7.1.4', h: '4', obj: '实时渲染'
+      }
+    };
+
+    var titleEl = document.getElementById('sceneTitle');
+    var descEl = document.getElementById('sceneDesc');
+    var chEl = document.getElementById('sceneCh');
+    var hEl = document.getElementById('sceneH');
+    var objEl = document.getElementById('sceneObj');
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var key = tab.dataset.scene;
+        var d = data[key];
+        if (!d) return;
+
+        tabs.forEach(function (t) {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        root.style.setProperty('--accent', d.accent);
+
+        [titleEl, descEl].forEach(function (el) {
+          if (!el) return;
+          el.style.opacity = '0';
+          setTimeout(function () {
+            if (el === titleEl) el.textContent = d.title;
+            else el.textContent = d.desc;
+            el.style.opacity = '1';
+          }, 180);
+        });
+
+        if (chEl) chEl.textContent = d.ch;
+        if (hEl) hEl.textContent = d.h;
+        if (objEl) objEl.textContent = d.obj;
+      });
+    });
+  })();
+
+})();
 </script>
 </body>
-  <script type="text/javascript" id="myhk" src="https://myhkw.cn/api/player/179350299811" key="179350299811" m="1"></script>
+    <script type="text/javascript" id="myhk" src="https://myhkw.cn/api/player/179350299811" key="179350299811" m="1"></script>
 </html>
