@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b16">
+<title>AURORA Spatial｜自研沉浸式空间音频</title>
+<style>
+:root{--bg:#080b16;--panel:#10172a;--line:rgba(160,190,255,.16);--text:#f3f6ff;--muted:#aab5d0;--blue:#69c7ff;--violet:#9a83ff;--mint:#79f0d0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:.13em;font-size:15px}.brand b{color:var(--blue)}.navlinks{display:flex;gap:28px;color:var(--muted);font-size:13px}.navlinks a:hover{color:white}
+.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:36px;padding:72px 0 90px;position:relative}.eyebrow{color:var(--mint);font-size:12px;letter-spacing:.22em;text-transform:uppercase}.hero h1{font-size:clamp(42px,6vw,72px);line-height:1.08;letter-spacing:-.045em;margin:18px 0}.hero h1 span{background:linear-gradient(100deg,var(--blue),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{max-width:560px;color:var(--muted);font-size:17px}.actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}.btn{padding:13px 21px;border-radius:999px;font-size:14px;font-weight:700;border:1px solid var(--line);transition:.2s}.primary{background:linear-gradient(100deg,#5bc8f5,#8b7bff);color:#07101e;border:0}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.visual{height:440px;position:relative;display:grid;place-items:center;isolation:isolate}.orb{width:min(360px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b8f2ff 0,#6b9cff 10%,#6155ba 28%,#18284d 52%,#090d1b 70%);box-shadow:0 0 70px #6a8dff55, inset -25px -30px 60px #02040d;position:relative}.orb:before,.orb:after{content:"";position:absolute;inset:-35px;border:1px solid #8cbaff55;border-radius:50%;transform:rotateX(68deg) rotateZ(-18deg)}.orb:after{inset:-70px;transform:rotateX(68deg) rotateZ(28deg);border-color:#a58bff55}.soundwave{position:absolute;width:100%;height:100%;display:flex;align-items:center;justify-content:center;gap:7px;z-index:2}.soundwave i{display:block;width:5px;border-radius:9px;background:linear-gradient(var(--mint),var(--blue),var(--violet));box-shadow:0 0 18px #71d8ff88;animation:pulse 1.2s ease-in-out infinite alternate}.soundwave i:nth-child(3n){animation-delay:.3s}.soundwave i:nth-child(2n){animation-delay:.6s}@keyframes pulse{from{height:25px;opacity:.55}to{height:100px;opacity:1}}
+.float{position:absolute;padding:10px 14px;border:1px solid var(--line);background:#111a30cc;backdrop-filter:blur(12px);border-radius:12px;color:#dce8ff;font-size:12px}.f1{top:40px;right:0}.f2{bottom:54px;left:0}.f3{bottom:10px;right:25px}
+section{padding:84px 0;border-top:1px solid var(--line)}.section-head{max-width:650px;margin-bottom:34px}.section-head h2{font-size:clamp(30px,4vw,44px);margin:10px 0}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:25px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#131d34,#0c1120);min-height:190px}.icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#6fcfff18;color:var(--blue);font-size:20px;margin-bottom:18px}.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px}
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding:30px;border-radius:22px;border:1px solid var(--line);background:radial-gradient(ellipse at 80% 20%,#344b8950,transparent 50%),#0e1527}.demo h3{font-size:27px;margin:8px 0}.demo p{color:var(--muted)}.control{padding:20px;border-radius:16px;background:#080d1b;border:1px solid var(--line)}.control label{display:flex;justify-content:space-between;font-size:13px;color:#d9e5ff}.control input{width:100%;accent-color:#76cfff;margin:20px 0}.meter{height:8px;border-radius:20px;background:#1c2945;overflow:hidden}.meter span{display:block;height:100%;width:68%;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:20px;transition:width .2s}
+.banner{padding:45px;border-radius:22px;text-align:center;background:linear-gradient(120deg,#182d50,#27204d);border:1px solid #8ebdff35}.banner h2{font-size:clamp(28px,4vw,42px);margin:0 0 10px}.banner p{color:#c3cce3;margin:0 auto 24px;max-width:620px}
+footer{padding:30px 0 42px;color:#7f8ba8;font-size:12px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:760px){.navlinks{gap:12px;font-size:11px}.hero{grid-template-columns:1fr;padding-top:58px}.visual{height:330px}.grid{grid-template-columns:1fr}.demo{grid-template-columns:1fr}.f1{right:5px}.f2{left:5px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="wrap">
+<nav><a class="brand" href="#">AURORA <b>/</b> SPATIAL</a><div class="navlinks"><a href="#tech">核心技术</a><a href="#experience">聆听体验</a><a href="#about">关于项目</a></div></nav>
+</header>
+<main>
+<div class="wrap hero">
+<div><div class="eyebrow">Next-generation spatial audio</div><h1>让声音<br><span>拥有空间。</span></h1><p class="lead">AURORA Spatial 自研沉浸式空间音频方案。以声场建模与多维音频处理为核心，让声音不止于左右，更有方向、距离与包围感。</p><div class="actions"><a class="btn primary" href="#experience">探索聆听体验 ↗</a><a class="btn" href="#tech">了解核心技术</a></div></div>
+<div class="visual"><div class="orb"></div><div class="soundwave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="float f1">360° · 空间声场</div><div class="float f2">DIRECTION · 方向感知</div><div class="float f3">DEPTH · 声音纵深</div></div>
+</div>
+<section id="tech"><div class="wrap"><div class="section-head"><div class="eyebrow">Built from our own ideas</div><h2>为沉浸感而设计</h2><p>从声音定位到空间渲染，围绕真实聆听场景构建音频体验。</p></div><div class="grid">
+<article class="card"><div class="icon">◎</div><h3>空间定位</h3><p>通过声像与空间参数处理，塑造更清晰的声音方位与层次。</p></article>
+<article class="card"><div class="icon">〰</div><h3>动态声场</h3><p>根据音频内容调整空间表现，让细节、氛围与主体更协调。</p></article>
+<article class="card"><div class="icon">◈</div><h3>沉浸式渲染</h3><p>面向耳机与立体声播放场景，探索更具包围感的听觉体验。</p></article>
+</div></div></section>
+<section id="experience"><div class="wrap"><div class="demo"><div><div class="eyebrow">Interactive concept</div><h3>调节你的空间感</h3><p>这是一个前端交互概念演示。拖动滑块，查看空间强度示意变化；实际音效需要接入音频处理引擎后才能体验。</p></div><div class="control"><label for="space">空间感强度 <strong id="value">68%</strong></label><input id="space" type="range" min="0" max="100" value="68"><div class="meter"><span id="meter"></span></div><p id="status" style="font-size:12px;margin:14px 0 0">当前模式：沉浸声场</p></div></div></div></section>
+<section id="about"><div class="wrap"><div class="banner"><div class="eyebrow">A new way to listen</div><h2>不只是听见，更是身临其境。</h2><p>以自主研发为起点，持续探索空间音频的更多可能。</p><a class="btn primary" href="qiuwutian2@gmail.com">联系项目团队:qiuwutian2@gmail.com</a></div></div></section>
+</main>
+<footer class="wrap"><span>© 2026 AURORA Spatial · Concept project</span><span>本项目为独立概念展示，与 Dolby Laboratories 及 Dolby Atmos 不存在官方关联或授权关系。</span></footer>
+<script>
+const slider=document.getElementById('space'),value=document.getElementById('value'),meter=document.getElementById('meter'),status=document.getElementById('status');
+slider.addEventListener('input',()=>{const n=Number(slider.value);value.textContent=n+'%';meter.style.width=n+'%';status.textContent=n<30?'当前模式：轻量空间':n<70?'当前模式：沉浸声场':'当前模式：宽阔声场';});
+</script>
+</body>
+</html>
